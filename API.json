@@ -1,0 +1,9 @@
+{
+    "GetAccessToken": {
+        "URL": "https://bots.qq.com/app/getAppAccessToken",
+        "Method": "POST"
+    },
+    "OpenAPI": {
+        "BaseURL": "https://api.sgroup.qq.com"
+    }
+}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>QQ Bot 聊天记录</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="app-bar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <div>
+          <h1>QQ Bot</h1>
+          <p>聊天记录</p>
+        </div>
+      </div>
+      <div class="archive-summary" aria-label="记录统计">
+        <span><strong id="stat-total">0</strong> 条消息</span>
+        <span><strong id="stat-recent">0</strong> 条近 24 小时消息</span>
+        <span title="近 30 天 AI 输入与输出 Token"><strong id="stat-tokens">0</strong> AI Token</span>
+        <span id="failed-summary" class="failed-summary" hidden><strong id="stat-failed">0</strong> 条失败</span>
+      </div>
+      <div class="app-actions">
+        <span id="service-status" class="live-status"><i></i><span>运行中</span></span>
+        <button id="pause-button" class="control-button" type="button" title="暂停机器人回复">暂停服务</button>
+        <button id="refresh-button" class="icon-button light" type="button" aria-label="刷新聊天记录" title="刷新聊天记录">↻</button>
+        <button id="logout-button" class="control-button" type="button" title="退出聊天记录">退出</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="conversation-panel" aria-label="会话列表">
+        <div class="conversation-tools">
+          <label class="search-field">
+            <span class="sr-only">搜索会话或消息</span>
+            <input id="search-input" type="search" placeholder="搜索会话或消息" autocomplete="off">
+          </label>
+          <label>
+            <span class="sr-only">聊天场景</span>
+            <select id="scene-filter">
+              <option value="">全部会话</option>
+              <option value="c2c">单聊</option>
+              <option value="group">群聊</option>
+              <option value="channel">文字子频道</option>
+              <option value="direct">频道私信</option>
+            </select>
+          </label>
+        </div>
+        <div class="conversation-heading">
+          <h2>会话</h2>
+          <span id="conversation-count">0</span>
+        </div>
+        <div id="conversation-list" class="conversation-list" role="listbox" aria-label="聊天会话"></div>
+        <div id="conversation-empty" class="panel-empty" hidden>没有找到会话</div>
+      </aside>
+
+      <section class="chat-panel" aria-live="polite">
+        <div id="chat-empty" class="chat-empty">
+          <span class="empty-mark" aria-hidden="true">Q</span>
+          <h2>选择一个会话</h2>
+          <p>消息记录会显示在这里</p>
+        </div>
+
+        <div id="chat-view" class="chat-view" hidden>
+          <header class="chat-header">
+            <button id="back-button" class="icon-button back-button" type="button" aria-label="返回会话列表" title="返回会话列表">←</button>
+            <span id="chat-avatar" class="chat-avatar" aria-hidden="true"></span>
+            <div class="chat-identity">
+              <h2 id="chat-title"></h2>
+              <p id="chat-subtitle"></p>
+            </div>
+            <button id="block-button" class="conversation-action" type="button">封禁</button>
+            <div id="chat-count" class="chat-count"></div>
+          </header>
+          <div id="message-list" class="message-list" role="log" aria-label="聊天消息"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+    <aside id="detail-drawer" class="detail-drawer" aria-labelledby="detail-title" aria-hidden="true">
+      <div class="drawer-header">
+        <div>
+          <p>消息详情</p>
+          <h2 id="detail-title">记录信息</h2>
+        </div>
+        <button id="close-drawer-button" class="icon-button" type="button" aria-label="关闭详情" title="关闭详情">×</button>
+      </div>
+      <div id="detail-content" class="detail-content"></div>
+    </aside>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

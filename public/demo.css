@@ -1,0 +1,30 @@
+:root {
+  color: #f3edf8;
+  background: #161019;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { min-width: 320px; min-height: 100vh; margin: 0; background: radial-gradient(circle at 20% 0%, #4b2b59, transparent 42rem), #161019; }
+button, textarea { font: inherit; }
+button { cursor: pointer; }
+.app-shell { width: min(100%, 760px); min-height: 100vh; margin: 0 auto; padding: 34px 22px 24px; display: flex; flex-direction: column; }
+.hero { display: flex; align-items: center; gap: 16px; padding: 8px 4px 26px; }
+.avatar { width: 64px; height: 64px; object-fit: cover; object-position: top; border-radius: 50%; border: 2px solid #e6b5ff; box-shadow: 0 8px 26px #0008; }
+.eyebrow { margin: 0 0 4px; color: #db9ff9; font-size: 11px; letter-spacing: .16em; font-weight: 700; }
+h1 { margin: 0; font-size: 25px; letter-spacing: .02em; }
+.subtitle { margin: 5px 0 0; color: #bfb1c8; font-size: 14px; }
+.messages { flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 12px 0 24px; overflow-y: auto; }
+.message { max-width: min(86%, 560px); padding: 12px 14px; border-radius: 16px; white-space: pre-wrap; line-height: 1.65; font-size: 15px; box-shadow: 0 8px 24px #0002; }
+.assistant { align-self: flex-start; background: #34273a; border-bottom-left-radius: 4px; }
+.user { align-self: flex-end; color: #1d1022; background: #e7b4ff; border-bottom-right-radius: 4px; }
+.pending { opacity: .7; }
+.notice { margin: 0 0 12px; color: #aa9cb3; font-size: 12px; line-height: 1.5; }
+.composer { display: flex; align-items: flex-end; gap: 10px; padding: 9px; background: #28202c; border: 1px solid #4a3a50; border-radius: 16px; }
+textarea { flex: 1; min-height: 28px; max-height: 180px; padding: 4px 5px; resize: none; color: inherit; background: transparent; border: 0; outline: 0; line-height: 1.5; }
+textarea::placeholder { color: #998ca2; }
+button { border: 0; border-radius: 10px; padding: 9px 15px; color: #251329; background: #e7b4ff; font-weight: 750; }
+button:hover { background: #f0cbff; }
+button:disabled { cursor: wait; opacity: .55; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+@media (max-width: 560px) { .app-shell { padding: 20px 14px 14px; } .message { max-width: 91%; } }
