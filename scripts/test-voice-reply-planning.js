@@ -6,7 +6,8 @@ const { AIConversationService } = require("../src/AIConversationService");
 const { ChatDatabase } = require("../src/ChatDatabase");
 const { createQwenClient } = require("../src/QwenService");
 const { QwenTTSService } = require("../src/QwenTTSService");
-const config = require("../data/Config.json");
+const { CONFIG_PATH } = require("../src/RuntimePaths");
+const config = require(CONFIG_PATH);
 
 async function main() {
   const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "qqprunebot-voice-plan-"));

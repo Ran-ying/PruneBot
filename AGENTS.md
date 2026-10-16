@@ -21,3 +21,6 @@ Run `npm ci`, `npm run check`, and `npm test` with Node.js 22.5.0+; for fresh te
 ## Boundaries
 
 Never commit API keys, QQ AppSecret, access tokens, personal chat SQLite files, or archived user media. Preserve default data paths, startup commands, WebSocket/Webhook behavior, and HTTP routes; require tests for functional changes. Do not invoke live evaluation or TTS scripts unless intentionally approved due to external charges.
+
+- Manual TTS/evaluation output belongs in the ignored runtime data directory, never overwrite tracked `Resources/` samples by default.
+- Honor `QQBOT_DATA_DIRECTORY` for scripts that read private configuration.

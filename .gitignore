@@ -1,3 +1,6 @@
+/data/*
+!/data/Config.example.json
+
 .DS_Store
 data/Config.json
 /Resources/机器人自测报告模板-2023.xlsx

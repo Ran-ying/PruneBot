@@ -1,12 +1,13 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const config = require("../data/Config.json");
+const { CONFIG_PATH, DATA_DIRECTORY, ensureDataDirectory } = require("../src/RuntimePaths");
+const config = require(CONFIG_PATH);
 
 const API_ROOT = "https://dashscope.aliyuncs.com/api/v1/services/audio/tts";
 const REFERENCE_URL =
   "https://patchwiki.biligame.com/images/ys/f/f2/17wg6cve61fql7i0u534uuw0kqieoza.mp3";
-const OUTPUT_DIR = path.resolve(__dirname, "../Resources");
+const OUTPUT_DIR = path.resolve(process.env.QQBOT_TTS_OUTPUT_DIRECTORY || path.join(DATA_DIRECTORY, "TestOutputs", "tts-emotion"));
 
 const QWEN_TEXT =
   "[amazed]你、你怎么突然这么说？[reluctantly]我当然高兴，只是有点没反应过来而已。[empathetic]嗯……总之，谢谢你。";
@@ -18,12 +19,13 @@ const COSY_INSTRUCTION =
   "面对朋友说话；先意外害羞，再嘴硬但高兴，结尾温柔放慢。不要播音腔。";
 
 async function dashScopeRequest(pathname, body) {
-  if (!config.AIKey) throw new Error("Config.json 中缺少 AIKey");
+  const apiKey = process.env.DASHSCOPE_API_KEY || config.AIKey;
+  if (!apiKey) throw new Error("Config.json 中缺少 AIKey");
 
   const response = await fetch(`${API_ROOT}/${pathname}`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${config.AIKey}`,
+      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
@@ -109,10 +111,11 @@ async function synthesize({ model, voice, text, instruction, outputName }) {
 }
 
 async function main() {
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  ensureDataDirectory();
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true, mode: 0o700 });
 
-  const flashVoice =
-    "qwen-audio-3.0-tts-flash-brune-aa7a2a8f73b74a469eab4abde7b6c2ee";
+  const flashVoice = config.AITTSVoice;
+  if (!flashVoice) throw new Error("Config.json 中缺少 AITTSVoice，无法进行声音对比");
   const qwenPlus = await enrollVoice("qwen-audio-3.0-tts-plus", "bruneplus");
   const cosyPlus = await enrollVoice("cosyvoice-v3.5-plus", "brunecosy");
 

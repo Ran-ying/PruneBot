@@ -17,7 +17,7 @@
   "AITTSEnabled": true,
   "AITTSReplyMode": "voice_on_voice",
   "AITTSModel": "qwen-audio-3.0-tts-flash",
-  "AITTSVoice": "qwen-audio-3.0-tts-flash-brune-aa7a2a8f73b74a469eab4abde7b6c2ee",
+  "AITTSVoice": "",
   "AITTSSampleRate": 24000,
   "AITTSMaxCharacters": 400,
   "AITTSEmotionTagsEnabled": true,

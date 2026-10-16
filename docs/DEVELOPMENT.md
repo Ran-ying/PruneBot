@@ -26,9 +26,9 @@ npm test
 | `npm run eval:live` | 真实千问四组对话回归，**产生 API 费用** |
 | `npm run eval:deep -- --trials=2` | 深度多模型评测，**可能产生较高 API 费用** |
 | `npm run eval:voice` | 使用真实模型验证语音回复规划 |
-| `npm run test:tts` | 测试真实 TTS → SILK 管线 |
+| `npm run test:tts` | 测试真实 TTS → SILK 管线，默认写入忽略的运行数据目录 |
 | `npm run check:token` | 使用真实凭据检查 QQ Access Token 获取 |
-| `node scripts/compare-tts-emotion.js` | 比较 TTS 情绪样例，调用真实 API |
+| `node scripts/compare-tts-emotion.js` | 比较 TTS 情绪样例，调用真实 API，输出到运行数据目录 |
 | `python scripts/generate_brune_backgrounds.py` | 使用 Pillow 和 `Resources/brune.png` 生成日夜背景素材 |
 
 ## 修改约定

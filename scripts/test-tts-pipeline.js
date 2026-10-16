@@ -1,7 +1,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const config = require("../data/Config.json");
+const { CONFIG_PATH, DATA_DIRECTORY, ensureDataDirectory } = require("../src/RuntimePaths");
+const config = require(CONFIG_PATH);
 const { QwenTTSService } = require("../src/QwenTTSService");
 
 async function main() {
@@ -11,11 +12,10 @@ async function main() {
     { conversationKey: "manual:tts-pipeline-test" },
   );
   const silk = Buffer.from(result.fileData, "base64");
-  const outputPath = path.resolve(
-    __dirname,
-    "../Resources/brune-voice-qwen-audio-flash-qq-test.silk",
-  );
-  fs.writeFileSync(outputPath, silk);
+  ensureDataDirectory();
+  const outputPath = path.join(DATA_DIRECTORY, "TestOutputs", "voice-pipeline-test.silk");
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true, mode: 0o700 });
+  fs.writeFileSync(outputPath, silk, { mode: 0o600 });
 
   process.stdout.write(`${JSON.stringify({
     outputPath,

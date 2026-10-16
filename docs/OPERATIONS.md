@@ -45,7 +45,7 @@ cp data/Config.example.json data/Config.json
 | `AIGroupReplyMode` | `smart` | `at_only` 只回复明确 @；`smart` 也允许点名、引用和短时间连续交谈 |
 | `AIReplyMaxBubbles` | `3` | 全局硬上限；单条输入仍会被限制为最多两个气泡 |
 | `AIReplyCasualExpressionChance` | `0.1` | 轻松话题偶尔添加表情的概率；设为 `0` 可完全关闭 |
-| `AITTSEnabled` | `false` | 是否把 AI 文字回复合成为 QQ 语音；本项目实际配置已启用 |
+| `AITTSEnabled` | `true` | 示例配置已启用语音回复；如果没有可用的声音复刻 ID，请设为 `false` |
 | `AITTSReplyMode` | `voice_on_voice` | 默认文字回复，仅当本回合收到语音时回语音；`voice` 始终发语音，`voice_and_text` 始终发语音并附原文 |
 | `AITTSModel` | `qwen-audio-3.0-tts-flash` | 百炼语音合成模型 |
 | `AITTSVoice` | 无 | 百炼声音复刻返回的 voice ID |
@@ -130,7 +130,7 @@ npm start
 - `ChatHistory.sqlite*`：聊天记录、AI 上下文、处理状态和用量
 - `ChatMedia/`：归档图片
 
-这些路径已从 Git 排除。程序会尽量把数据目录设为 `0700`、敏感文件设为 `0600`。不要提交 `Secret`、真实 `Config.json`、数据库或终端中的访问凭据；`test.js` 只验证 Token 获取成功，不再打印 Token 内容。
+这些路径已从 Git 排除。程序会尽量把数据目录设为 `0700`、敏感文件设为 `0600`。不要提交 `Secret`、真实 `Config.json`、数据库或终端中的访问凭据；`npm run check:token` 只验证 Token 获取成功，不再打印 Token 内容。
 
 消息处理状态分为：
 
@@ -139,3 +139,9 @@ npm start
 - `ignored`：因暂停、封禁或群聊策略而只记录不回复
 - `failed`：处理失败，平台重投时允许再次尝试
 
+
+## 手动音频工具
+
+语音测试及比较脚本需要真实百炼 API Key，会产生 API 费用，**不会自动在 CI 中运行**。默认输出路径在 `data/TestOutputs/` 下，不会覆盖 `Resources/` 中的参考文件；如果设置 `QQBOT_DATA_DIRECTORY`，这些脚本会使用该目录下的 `Config.json`。
+
+`npm run test:tts` 将 SILK 音频写入 `data/TestOutputs/voice-pipeline-test.silk`。 `node scripts/compare-tts-emotion.js` 默认将 MP3 写入 `data/TestOutputs/tts-emotion/`，可通过 `QQBOT_TTS_OUTPUT_DIRECTORY` 指定输出目录。音色复刻 ID `AITTSVoice` 应在私有 `Config.json` 中配置，公开的示例模板不包含真实音色 ID。
