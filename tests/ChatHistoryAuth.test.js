@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { createChatHistoryAuth, parseCookies, safeEqual } = require("./ChatHistoryAuth");
+const { createChatHistoryAuth, parseCookies, safeEqual } = require("../src/ChatHistoryAuth");
 
 function createRequest(cookie = "") {
   return {

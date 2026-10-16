@@ -2,11 +2,11 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 const { mkdtempSync, rmSync } = require("node:fs");
 const { tmpdir } = require("node:os");
-const { AIConversationService } = require("./AIConversationService");
-const { AIInputService } = require("./AIInputService");
-const { ChatDatabase } = require("./ChatDatabase");
-const { createQwenClient } = require("./QwenService");
-const { CONFIG_PATH } = require("./RuntimePaths");
+const { AIConversationService } = require("../src/AIConversationService");
+const { AIInputService } = require("../src/AIInputService");
+const { ChatDatabase } = require("../src/ChatDatabase");
+const { createQwenClient } = require("../src/QwenService");
+const { CONFIG_PATH } = require("../src/RuntimePaths");
 
 const Config = require(CONFIG_PATH);
 const DEFAULT_MODELS = ["qwen3.5-flash", "qwen3.5-plus", "qwen3.7-max"];

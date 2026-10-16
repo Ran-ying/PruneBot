@@ -2,11 +2,12 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 
-const { AIConversationService } = require("../AIConversationService");
-const { ChatDatabase } = require("../ChatDatabase");
-const { createQwenClient } = require("../QwenService");
-const { QwenTTSService } = require("../QwenTTSService");
-const config = require("../data/Config.json");
+const { AIConversationService } = require("../src/AIConversationService");
+const { ChatDatabase } = require("../src/ChatDatabase");
+const { createQwenClient } = require("../src/QwenService");
+const { QwenTTSService } = require("../src/QwenTTSService");
+const { CONFIG_PATH } = require("../src/RuntimePaths");
+const config = require(CONFIG_PATH);
 
 async function main() {
   const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "qqprunebot-voice-plan-"));

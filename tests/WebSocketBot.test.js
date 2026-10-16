@@ -1,7 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const { EventEmitter } = require("node:events");
-const { getReconnectDelayMs, OPCODE, startWebSocketBot } = require("./WebSocketBot");
+const { getReconnectDelayMs, OPCODE, startWebSocketBot } = require("../src/WebSocketBot");
 
 function nextTurn() {
   return new Promise((resolve) => setImmediate(resolve));

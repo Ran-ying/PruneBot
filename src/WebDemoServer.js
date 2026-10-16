@@ -8,7 +8,7 @@ const { ChatDatabase, DEFAULT_DATABASE_PATH } = require("./ChatDatabase");
 const { createQwenClient } = require("./QwenService");
 const { CONFIG_PATH, hardenDataPermissions } = require("./RuntimePaths");
 
-const PUBLIC_DIRECTORY = path.join(__dirname, "public");
+const PUBLIC_DIRECTORY = path.join(__dirname, "..", "public");
 const STATIC_FILES = new Map([
   ["/", { file: "demo.html", type: "text/html; charset=utf-8" }],
   ["/demo.css", { file: "demo.css", type: "text/css; charset=utf-8" }],

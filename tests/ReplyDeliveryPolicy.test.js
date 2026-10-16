@@ -9,7 +9,7 @@ const {
   maybeAddCasualExpression,
   shapeReplyBubbles,
   splitNaturalReaction,
-} = require("./ReplyDeliveryPolicy");
+} = require("../src/ReplyDeliveryPolicy");
 
 test("回复长度根据用户消息复杂度自适应", () => {
   const acknowledgement = getAdaptiveReplyConstraints("好吧", 1);

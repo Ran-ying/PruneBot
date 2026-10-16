@@ -3,7 +3,7 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 const { mkdtempSync, readFileSync, rmSync } = require("node:fs");
 const { tmpdir } = require("node:os");
-const { archiveIncomingImages } = require("./IncomingMediaStorage");
+const { archiveIncomingImages } = require("../src/IncomingMediaStorage");
 
 test("收到 QQ 图片时保存本地副本并保留原始 URL", async () => {
   const directory = mkdtempSync(path.join(tmpdir(), "qqbot-media-"));

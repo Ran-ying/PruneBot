@@ -3,8 +3,8 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 const { mkdirSync, mkdtempSync, rmSync, writeFileSync } = require("node:fs");
 const { tmpdir } = require("node:os");
-const { ChatDatabase } = require("./ChatDatabase");
-const { startChatHistoryServer } = require("./ChatHistoryServer");
+const { ChatDatabase } = require("../src/ChatDatabase");
+const { startChatHistoryServer } = require("../src/ChatHistoryServer");
 
 function createTemporaryDatabase() {
   const directory = mkdtempSync(path.join(tmpdir(), "qqbot-history-"));

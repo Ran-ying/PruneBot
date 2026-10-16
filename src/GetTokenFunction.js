@@ -1,4 +1,4 @@
-const APIList = require("./API.json");
+const APIList = require("../API.json");
 const { CONFIG_PATH, TOKEN_STORAGE_PATH, ensureDataDirectory } = require("./RuntimePaths");
 const Config = require(CONFIG_PATH);
 const fs = require("node:fs/promises");

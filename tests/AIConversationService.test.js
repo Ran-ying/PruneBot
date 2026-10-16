@@ -3,7 +3,7 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 const { mkdtempSync, rmSync } = require("node:fs");
 const { tmpdir } = require("node:os");
-const { ChatDatabase } = require("./ChatDatabase");
+const { ChatDatabase } = require("../src/ChatDatabase");
 const {
   AIConversationService,
   buildRuntimeFactsPrompt,
@@ -34,7 +34,7 @@ const {
   normalizeReplyMessages,
   stripReusableResponseExamples,
   stripRoleplayActions,
-} = require("./AIConversationService");
+} = require("../src/AIConversationService");
 
 test("角色回复移除动作旁白并控制长度", () => {
   assert.equal(

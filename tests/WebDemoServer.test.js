@@ -1,8 +1,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const http = require("node:http");
-const { createRateLimiter, startWebDemoServer } = require("./WebDemoServer");
-const { ChatDatabase } = require("./ChatDatabase");
+const { createRateLimiter, startWebDemoServer } = require("../src/WebDemoServer");
+const { ChatDatabase } = require("../src/ChatDatabase");
 const { mkdtempSync, rmSync } = require("node:fs");
 const path = require("node:path");
 const { tmpdir } = require("node:os");
@@ -65,6 +65,18 @@ test("Web Demo 服务隔离会话并且不向浏览器暴露密钥", async () =>
     assert.equal(page.statusCode, 200);
     assert.match(page.body, /和布伦妮聊聊/u);
     assert.doesNotMatch(page.body, /AIKey|DASHSCOPE/u);
+
+    const style = await request(`${demo.url}/demo.css`);
+    assert.equal(style.statusCode, 200);
+    assert.match(style.headers["content-type"], /^text\/css/u);
+
+    const script = await request(`${demo.url}/demo.js`);
+    assert.equal(script.statusCode, 200);
+    assert.match(script.headers["content-type"], /^text\/javascript/u);
+
+    const characterImage = await request(`${demo.url}/brune.png`);
+    assert.equal(characterImage.statusCode, 200);
+    assert.equal(characterImage.headers["content-type"], "image/png");
 
     const first = await request(`${demo.url}/api/chat`, {
       method: "POST",

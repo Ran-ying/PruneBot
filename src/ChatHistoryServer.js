@@ -4,7 +4,7 @@ const { readFile } = require("node:fs/promises");
 const { DEFAULT_MEDIA_DIRECTORY } = require("./IncomingMediaStorage");
 const { createChatHistoryAuth } = require("./ChatHistoryAuth");
 
-const PUBLIC_DIRECTORY = path.join(__dirname, "public");
+const PUBLIC_DIRECTORY = path.join(__dirname, "..", "public");
 const STATIC_FILES = new Map([
   ["/", { file: "chat-history.html", type: "text/html; charset=utf-8" }],
   ["/styles.css", { file: "chat-history.css", type: "text/css; charset=utf-8" }],

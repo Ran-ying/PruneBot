@@ -8,13 +8,14 @@
   },
   "scripts": {
     "start": "node main.js",
-    "start:demo": "node WebDemoServer.js",
-    "eval:live": "node LiveConversationEval.js",
-    "eval:deep": "node DeepConversationEval.js",
+    "start:demo": "node src/WebDemoServer.js",
+    "eval:live": "node scripts/LiveConversationEval.js",
+    "eval:deep": "node scripts/DeepConversationEval.js",
     "eval:voice": "node scripts/test-voice-reply-planning.js",
     "test:tts": "node scripts/test-tts-pipeline.js",
-    "check": "node --check main.js && node --check RuntimePaths.js && node --check GetTokenFunction.js && node --check OpenApiClient.js && node --check MessageService.js && node --check MessageBatcher.js && node --check GroupReplyPolicy.js && node --check ReplyDeliveryPolicy.js && node --check WebSocketBot.js && node --check WebhookBot.js && node --check ChatDatabase.js && node --check ChatHistoryAuth.js && node --check ChatHistoryServer.js && node --check WebDemoServer.js && node --check QwenService.js && node --check QwenTTSService.js && node --check AIInputService.js && node --check AIConversationService.js && node --check IncomingMediaStorage.js && node --check public/chat-history.js && node --check public/login.js && node --check public/demo.js",
-    "test": "node --test *.test.js"
+    "check": "node scripts/check-syntax.js",
+    "test": "node --test tests/*.test.js",
+    "check:token": "node scripts/check-qq-token.js"
   },
   "dependencies": {
     "silk-wasm": "^3.7.1",

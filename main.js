@@ -1,6 +1,6 @@
-const { startWebSocketBot } = require("./WebSocketBot");
-const { startWebhookBot } = require("./WebhookBot");
-const { CONFIG_PATH, hardenDataPermissions } = require("./RuntimePaths");
+const { startWebSocketBot } = require("./src/WebSocketBot");
+const { startWebhookBot } = require("./src/WebhookBot");
+const { CONFIG_PATH, hardenDataPermissions } = require("./src/RuntimePaths");
 const Config = {
   AIReplyNaturalSplitEnabled: true,
   AIAdaptiveReplyLengthEnabled: true,
@@ -8,15 +8,15 @@ const Config = {
   AIReplyExpressionMaxGap: 0,
   ...require(CONFIG_PATH),
 };
-const { AIConversationService, getConversationKey } = require("./AIConversationService");
-const { AIInputService } = require("./AIInputService");
-const { ChatDatabase, DEFAULT_DATABASE_PATH } = require("./ChatDatabase");
-const { startChatHistoryServer } = require("./ChatHistoryServer");
-const { archiveIncomingImages } = require("./IncomingMediaStorage");
-const { createQwenClient } = require("./QwenService");
-const { QwenTTSService } = require("./QwenTTSService");
-const { MessageBatcher } = require("./MessageBatcher");
-const { GroupReplyPolicy, mentionsCurrentBot, stripCurrentBotMention } = require("./GroupReplyPolicy");
+const { AIConversationService, getConversationKey } = require("./src/AIConversationService");
+const { AIInputService } = require("./src/AIInputService");
+const { ChatDatabase, DEFAULT_DATABASE_PATH } = require("./src/ChatDatabase");
+const { startChatHistoryServer } = require("./src/ChatHistoryServer");
+const { archiveIncomingImages } = require("./src/IncomingMediaStorage");
+const { createQwenClient } = require("./src/QwenService");
+const { QwenTTSService } = require("./src/QwenTTSService");
+const { MessageBatcher } = require("./src/MessageBatcher");
+const { GroupReplyPolicy, mentionsCurrentBot, stripCurrentBotMention } = require("./src/GroupReplyPolicy");
 const {
   sendC2CMessageRequest,
   sendGroupMessageRequest,
@@ -24,7 +24,7 @@ const {
   sendDirectMessageRequest,
   uploadC2CMedia,
   uploadGroupMedia,
-} = require("./MessageService");
+} = require("./src/MessageService");
 
 const RECEIVE_MODE = process.env.QQBOT_RECEIVE_MODE || "websocket";
 let chatDatabase = null;

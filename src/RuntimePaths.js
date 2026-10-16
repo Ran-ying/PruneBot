@@ -3,7 +3,7 @@ const { chmodSync, existsSync, mkdirSync } = require("node:fs");
 
 const DATA_DIRECTORY = process.env.QQBOT_DATA_DIRECTORY
   ? path.resolve(process.env.QQBOT_DATA_DIRECTORY)
-  : path.join(__dirname, "data");
+  : path.join(__dirname, "..", "data");
 
 const CONFIG_PATH = path.join(DATA_DIRECTORY, "Config.json");
 const TOKEN_STORAGE_PATH = path.join(DATA_DIRECTORY, "Storage.json");
