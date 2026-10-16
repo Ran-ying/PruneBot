@@ -2,10 +2,10 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 
-const { AIConversationService } = require("../AIConversationService");
-const { ChatDatabase } = require("../ChatDatabase");
-const { createQwenClient } = require("../QwenService");
-const { QwenTTSService } = require("../QwenTTSService");
+const { AIConversationService } = require("../src/AIConversationService");
+const { ChatDatabase } = require("../src/ChatDatabase");
+const { createQwenClient } = require("../src/QwenService");
+const { QwenTTSService } = require("../src/QwenTTSService");
 const config = require("../data/Config.json");
 
 async function main() {

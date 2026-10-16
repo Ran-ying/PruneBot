@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const config = require("../data/Config.json");
-const { QwenTTSService } = require("../QwenTTSService");
+const { QwenTTSService } = require("../src/QwenTTSService");
 
 async function main() {
   const service = new QwenTTSService({ config });
