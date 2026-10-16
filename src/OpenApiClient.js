@@ -1,4 +1,4 @@
-const APIList = require("./API.json");
+const APIList = require("../API.json");
 const { getToken } = require("./GetTokenFunction");
 
 const OPENAPI_BASE_URL = APIList.OpenAPI.BaseURL;
