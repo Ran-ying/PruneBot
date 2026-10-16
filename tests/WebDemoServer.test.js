@@ -1,8 +1,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const http = require("node:http");
-const { createRateLimiter, startWebDemoServer } = require("./WebDemoServer");
-const { ChatDatabase } = require("./ChatDatabase");
+const { createRateLimiter, startWebDemoServer } = require("../src/WebDemoServer");
+const { ChatDatabase } = require("../src/ChatDatabase");
 const { mkdtempSync, rmSync } = require("node:fs");
 const path = require("node:path");
 const { tmpdir } = require("node:os");

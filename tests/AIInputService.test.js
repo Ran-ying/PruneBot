@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { AIInputService } = require("./AIInputService");
+const { AIInputService } = require("../src/AIInputService");
 
 test("图片由视觉模型描述后交给文字模型", async () => {
   const calls = [];

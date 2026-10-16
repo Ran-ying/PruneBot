@@ -8,7 +8,7 @@ const {
   hasMatchingSpeechCore,
   inferEmotionTag,
   normalizeTaggedSpeech,
-} = require("./QwenTTSService");
+} = require("../src/QwenTTSService");
 
 test("根据回复内容选择克制的情绪标签", () => {
   assert.equal(inferEmotionTag("谢谢你，今天辛苦了。"), "[empathetic]");

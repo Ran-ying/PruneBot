@@ -13,7 +13,7 @@ const {
   getOutgoingContentTypes,
   hasVoiceInput,
   shouldUseVoiceReply,
-} = require("./main");
+} = require("../main");
 
 test("同一用户消息的多个回复气泡递增 msg_seq", () => {
   const context = {

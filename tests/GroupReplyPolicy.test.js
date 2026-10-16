@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { GroupReplyPolicy } = require("./GroupReplyPolicy");
+const { GroupReplyPolicy } = require("../src/GroupReplyPolicy");
 
 function createContext({
   eventType = "GROUP_MESSAGE_CREATE",

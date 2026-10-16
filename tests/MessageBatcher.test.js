@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { MessageBatcher } = require("./MessageBatcher");
+const { MessageBatcher } = require("../src/MessageBatcher");
 
 function sleep(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));

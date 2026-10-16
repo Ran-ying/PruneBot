@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { createQwenClient } = require("./QwenService");
+const { createQwenClient } = require("../src/QwenService");
 
 test("使用 OpenAI 兼容格式调用通义千问", async () => {
   let request;

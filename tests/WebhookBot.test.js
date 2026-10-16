@@ -4,7 +4,7 @@ const {
   CALLBACK_ACK_OPCODE,
   signWebhookMessage,
   startWebhookBot,
-} = require("./WebhookBot");
+} = require("../src/WebhookBot");
 
 const APP_ID = "11111111";
 const APP_SECRET = "DG5g3B4j9X2KOErG";
