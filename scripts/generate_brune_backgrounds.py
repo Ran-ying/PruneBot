@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1] / "Resources"
 SOURCE = ROOT / "brune.png"
 CANVAS_SIZE = (720, 1280)
 MAX_ART_SIZE = (680, 1180)

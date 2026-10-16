@@ -2,11 +2,11 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 const { mkdtempSync, rmSync } = require("node:fs");
 const { tmpdir } = require("node:os");
-const { AIConversationService } = require("./AIConversationService");
-const { AIInputService } = require("./AIInputService");
-const { ChatDatabase } = require("./ChatDatabase");
-const { createQwenClient } = require("./QwenService");
-const { CONFIG_PATH } = require("./RuntimePaths");
+const { AIConversationService } = require("../src/AIConversationService");
+const { AIInputService } = require("../src/AIInputService");
+const { ChatDatabase } = require("../src/ChatDatabase");
+const { createQwenClient } = require("../src/QwenService");
+const { CONFIG_PATH } = require("../src/RuntimePaths");
 
 const Config = require(CONFIG_PATH);
 const ROLEPLAY_OVERLOAD = /(诱巫饵铃|魔女情报|狩灾誓锤|风元素|提瓦特|记进笔记|根据我的调查)/u;

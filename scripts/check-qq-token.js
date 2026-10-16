@@ -1,5 +1,5 @@
 
-const { getToken } = require("./GetTokenFunction");
+const { getToken } = require("../src/GetTokenFunction");
 
 getToken()
   .then(() => {
